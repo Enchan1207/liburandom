@@ -8,10 +8,7 @@ shared_lib_directory = /usr/local/lib
 current_dir = `pwd`
 
 #
-.PHONY: __dummy__ build install uninstall 
-
-__dummy__:
-	@echo "make {build|install|uninstall}"
+.PHONY: build install uninstall 
 
 build:
 	@mkdir -p $(build_path)
@@ -20,7 +17,7 @@ build:
 	@gcc -c liburandom.c
 	@mv *.o $(build_path)
 
-	@echo "archiving..."
+	@echo "generate dylib..."
 	@cd $(build_path); gcc -dynamiclib -o $(build_dylib_name) *.o
 
 install:
