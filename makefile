@@ -2,6 +2,7 @@
 #
 #
 build_path = build
+build_header_name = liburandom.h
 build_dylib_name = liburandom.dylib
 shared_include_directory = /usr/local/include
 shared_lib_directory = /usr/local/lib
@@ -22,10 +23,10 @@ build:
 
 install:
 	@echo "Installing..."
-	install build/liburandom.dylib $(shared_lib_directory)/
-	install liburandom.h $(shared_include_directory)/
+	install $(build_path)/$(build_dylib_name) $(shared_lib_directory)/
+	install $(build_header_name) $(shared_include_directory)/
 
 uninstall:
-	@rm $(shared_include_directory)/liburandom
+	@rm $(shared_include_directory)/$(build_header_name)
 	@rm $(shared_lib_directory)/$(build_dylib_name)
 	@cd $(build_path);rm -f *
