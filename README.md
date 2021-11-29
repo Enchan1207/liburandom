@@ -43,6 +43,11 @@ int main(int argc, char const *argv[]){
 }
 ```
 
+On compiling:
+
+```
+gcc /path/to/file -lurandom
+```
 ## License
 
 This repository is published under MIT License.
